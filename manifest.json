@@ -1,0 +1,9 @@
+{
+  "name": "Mahin Mess",
+  "short_name": "MahinMess",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#87CEEB",
+  "theme_color": "#1E90FF",
+  "description": "Mahin Mess Final Admin Secured Version"
+}

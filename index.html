@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content='width=device-width, initial-scale=1.0'>
+  <title>WELCOME MAHIN MESS</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="welcome-title" id="welcomeTitle">WELCOME<br>MAHIN MESS</h1>
+  <p class="footer">made by BYAZID</p>
+
+  <div class="notice-box">
+    <marquee class="notice" direction="left" id="noticeText">NOTICE: Mess rules will appear here and scroll automatically.</marquee>
+  </div>
+
+  <div class="message-box">
+    <h2 style="color: yellow;">MESSAGE</h2>
+    <textarea id="admin-message" placeholder="Only admin can edit" readonly></textarea>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Room Rent</th>
+        <th>Meal</th>
+        <th>Khala</th>
+        <th>Current</th>
+        <th>Khori</th>
+        <th>Fine</th>
+        <th>Phone</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody id="member-table"></tbody>
+  </table>
+
+  <div id="notification-box">
+    <h2>🔔 Notifications</h2>
+    <p id="admin-notification">Only admin can post here.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
