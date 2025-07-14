@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahin Mess</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#87CEEB">
+    <style>
+        body {
+            background: linear-gradient(135deg, #87CEEB, #e0f7fa);
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, red, orange, yellow, green, blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideIn 1.5s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .footer {
+            position: fixed;
+            bottom: 5px;
+            right: 10px;
+            font-size: 12px;
+            color: gray;
+        }
+        .admin-panel, .data-panel {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .notice, .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+        }
+        .notice { background: red; }
+        .message { background: yellow; color: black; }
+    </style>
+</head>
+<body>
+    <h1>WELCOME<br>MAHIN MESS</h1>
+    <p class="footer">made by BYAZID</p><div class="admin-panel">
+    <button onclick="triggerAdminLogin()">Tap 3 Times on Title for Admin</button>
+    <div id="adminControl" style="display:none">
+        <textarea id="noticeBox" placeholder="Write NOTICE here..."></textarea><br>
+        <textarea id="messageBox" placeholder="Write MESSAGE here..."></textarea><br>
+        <button onclick="saveData()">Save</button>
+    </div>
+</div>
+
+<div class="data-panel">
+    <h3>Member List</h3>
+    <p>Photo + Name + Room Rent + Meal + ...</p>
+</div>
+
+<div class="notice" id="noticeText"></div>
+<div class="message" id="messageText"></div>
+
+<script>
+    const ADMIN_PASS = "MAHINMESSADMIN99";
+    let tapCount = 0;
+
+    document.querySelector('h1').addEventListener('click', () => {
+        tapCount++;
+        if (tapCount === 3) {
+            const input = prompt("Enter admin password:");
+            if (input === ADMIN_PASS) {
+                document.getElementById("adminControl").style.display = 'block';
+                alert("Admin Mode Activated!");
+            } else {
+                alert("Wrong password!");
+            }
+            tapCount = 0;
+        }
+    });
+
+    function saveData() {
+        const notice = document.getElementById('noticeBox').value;
+        const message = document.getElementById('messageBox').value;
+        localStorage.setItem('MahinMess_notice', notice);
+        localStorage.setItem('MahinMess_message', message);
+        displayData();
+    }
+
+    function displayData() {
+        document.getElementById('noticeText').innerText = localStorage.getItem('MahinMess_notice') || "";
+        document.getElementById('messageText').innerText = localStorage.getItem('MahinMess_message') || "";
+    }
+
+    window.onload = displayData;
+</script>
+
+</body>
+</html>
